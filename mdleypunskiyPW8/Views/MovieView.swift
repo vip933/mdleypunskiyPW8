@@ -8,12 +8,17 @@
 import UIKit
 
 class MovieView: UITableViewCell {
-    static let identifier = "MovieCell"
+    static let ident = "MovieCell"
     private let poster = UIImageView()
     private let title = UILabel()
     
     init() {
-        super.init(style: .default, reuseIdentifier: Self.identifier)
+        super.init(style: .default, reuseIdentifier: Self.ident)
+        configureUI()
+    }
+    
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: Self.ident)
         configureUI()
     }
     
@@ -40,5 +45,10 @@ class MovieView: UITableViewCell {
             title.heightAnchor.constraint(equalToConstant: 20),
         ])
         title.textAlignment = .center
+    }
+    
+    func configure(movie: Movie) {
+        title.text = movie.title
+        poster.image = movie.poster
     }
 }

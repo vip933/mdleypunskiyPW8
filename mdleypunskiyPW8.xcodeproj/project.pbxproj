@@ -14,6 +14,7 @@
 		B55A0C0627E5EC7A00FB379E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B55A0C0427E5EC7A00FB379E /* LaunchScreen.storyboard */; };
 		B55A0C1027E5EE1F00FB379E /* MovieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55A0C0F27E5EE1F00FB379E /* MovieView.swift */; };
 		B55A0C1227E5F38300FB379E /* Constatns.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55A0C1127E5F38300FB379E /* Constatns.swift */; };
+		B55A0C1527E5F5F000FB379E /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55A0C1427E5F5F000FB379E /* Movie.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		B55A0C0727E5EC7A00FB379E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B55A0C0F27E5EE1F00FB379E /* MovieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieView.swift; sourceTree = "<group>"; };
 		B55A0C1127E5F38300FB379E /* Constatns.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constatns.swift; sourceTree = "<group>"; };
+		B55A0C1427E5F5F000FB379E /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 		B55A0BF827E5EC7800FB379E /* mdleypunskiyPW8 */ = {
 			isa = PBXGroup;
 			children = (
+				B55A0C1327E5F5D600FB379E /* Models */,
 				B55A0C0E27E5EDF700FB379E /* Views */,
 				B55A0C0D27E5ED4900FB379E /* Controllers */,
 				B55A0BF927E5EC7800FB379E /* AppDelegate.swift */,
@@ -84,6 +87,14 @@
 				B55A0C0F27E5EE1F00FB379E /* MovieView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		B55A0C1327E5F5D600FB379E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B55A0C1427E5F5F000FB379E /* Movie.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -157,6 +168,7 @@
 			files = (
 				B55A0BFE27E5EC7800FB379E /* MoviesViewController.swift in Sources */,
 				B55A0C1027E5EE1F00FB379E /* MovieView.swift in Sources */,
+				B55A0C1527E5F5F000FB379E /* Movie.swift in Sources */,
 				B55A0BFA27E5EC7800FB379E /* AppDelegate.swift in Sources */,
 				B55A0C1227E5F38300FB379E /* Constatns.swift in Sources */,
 				B55A0BFC27E5EC7800FB379E /* SceneDelegate.swift in Sources */,
