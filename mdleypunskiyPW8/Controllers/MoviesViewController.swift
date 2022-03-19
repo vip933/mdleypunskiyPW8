@@ -13,6 +13,9 @@ class MoviesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
+        DispatchQueue.global(qos: .background).async { [weak self] in
+            self?.loadMovies()
+        }
     }
     
     private func configureUI() {
@@ -27,6 +30,18 @@ class MoviesViewController: UIViewController {
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
         tableView.reloadData()
+    }
+    
+    private func loadMovies() {
+        guard let url = URL(string: "https://api.themoviedb.org/3/movie/550?api_key=\(Constants.shared.apiKey)&language=ruRu") else {
+            return assertionFailure("Problems with url!")
+            
+        }
+        let session = URLSession.shared.dataTask(with: URLRequest(url: url), completionHandler: { data, _, _ in
+            
+        })
+        
+        session.resume()
     }
 }
 
