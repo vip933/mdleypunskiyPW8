@@ -22,9 +22,9 @@ class MoviesViewController: UIViewController {
     private func configureUI() {
         view.addSubview(tableView)
         tableView.dataSource = self
-        tableView.isScrollEnabled = true
         tableView.register(MovieView.self, forCellReuseIdentifier: MovieView.ident)
         tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.rowHeight = CGFloat(MovieView.imageHeight + MovieView.titleHeight + 2 * MovieView.indentHeight)
         NSLayoutConstraint.activate([
             tableView.topAnchor.constraint(equalTo: view.topAnchor),
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
@@ -53,18 +53,34 @@ class MoviesViewController: UIViewController {
                 let imagePath = params["poster_path"] as! String
                 return Movie(
                     title: title,
-                    posterPath: imagePath,
-                    poster: nil
+                    posterPath: imagePath
                 )
             }
             
-            self?.movies = movies
-            DispatchQueue.main.async {
-                self?.tableView.reloadData()
+            self?.loadImagesForMovies(movies) { movies in
+                self?.movies = movies
+                DispatchQueue.main.async {
+                    self?.tableView.reloadData()
+                }
             }
         })
         
         session.resume()
+    }
+    
+    private func loadImagesForMovies(_ movies: [Movie], completion: @escaping ([Movie]) -> Void) {
+        let group = DispatchGroup()
+        for movie in movies {
+            group.enter()
+            DispatchQueue.global(qos: .background).async {
+                movie.loadPoster { _ in
+                    group.leave()
+                }
+            }
+        }
+        group.notify(queue: .main) {
+            completion(movies)
+        }
     }
 }
 

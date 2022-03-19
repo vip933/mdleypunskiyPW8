@@ -9,6 +9,9 @@ import UIKit
 
 class MovieView: UITableViewCell {
     static let ident = "MovieCell"
+    static let imageHeight = 200
+    static let titleHeight = 20
+    static let indentHeight = 10
     private let poster = UIImageView()
     private let title = UILabel()
     
@@ -37,12 +40,12 @@ class MovieView: UITableViewCell {
             poster.topAnchor.constraint(equalTo: topAnchor),
             poster.leadingAnchor.constraint(equalTo: leadingAnchor),
             poster.trailingAnchor.constraint(equalTo: trailingAnchor),
-            poster.heightAnchor.constraint(equalToConstant: 200),
+            poster.heightAnchor.constraint(equalToConstant: CGFloat(Self.imageHeight)),
             
-            title.topAnchor.constraint(equalTo: poster.bottomAnchor, constant: 10),
+            title.topAnchor.constraint(equalTo: poster.bottomAnchor, constant: CGFloat(Self.indentHeight)),
             title.leadingAnchor.constraint(equalTo: leadingAnchor),
             title.trailingAnchor.constraint(equalTo: trailingAnchor),
-            title.heightAnchor.constraint(equalToConstant: 20),
+            title.heightAnchor.constraint(equalToConstant: CGFloat(Self.titleHeight)),
         ])
         title.textAlignment = .center
     }
