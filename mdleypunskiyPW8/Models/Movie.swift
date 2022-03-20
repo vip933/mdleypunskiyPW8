@@ -12,7 +12,7 @@ class Movie {
     let posterPath: String?
     var poster: UIImage? = nil
     
-    init(title: String, posterPath: String) {
+    init(title: String, posterPath: String?) {
         self.title = title
         self.posterPath = posterPath
     }
